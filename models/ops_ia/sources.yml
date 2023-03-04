@@ -2,5 +2,7 @@ version: 2
 
 sources:
   - name: 'ops_ia'
+    database: dbt_transformed
+    schema: dbt_employee_list
     tables:
       - name: _airbyte_raw_employee_list
