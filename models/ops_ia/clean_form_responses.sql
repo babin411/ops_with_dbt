@@ -15,8 +15,8 @@ with airbyte_raw_form_responses as (
 ,
 cleaned_data as (
 	select
-		trim(upper(arfr.employee_name)) as employee_name,
-		trim(arfr.email) as email,
+		md5(trim(upper(arfr.employee_name))) as employee_name,
+		md5(trim(arfr.email)) as email,
 		cel.gender,
 		arfr.timestamp::date as date,
 		trim(upper(arfr.day)) as day,
@@ -25,6 +25,11 @@ cleaned_data as (
 				then trim(left(arfr.food_coupon_id, position('(' in arfr.food_coupon_id)-1))
 			else arfr.food_coupon_id
 		end as food_coupon_id,
+		case
+		when arfr.food_coupon_id like '%(%)%'
+			then trim(substring(arfr.food_coupon_id, position('(' in arfr.food_coupon_id), position(')' in arfr.food_coupon_id)))
+		else null
+		end as food_coupon_remarks,
 		case 
 			when upper(arfr.drop_off_required) similar to '%NO%|%DAY%|%PATHO%' then 'NO'
 			when upper(arfr.drop_off_required) like '%YES%' then 'YES'
