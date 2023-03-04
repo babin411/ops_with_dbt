@@ -1,0 +1,6 @@
+version: 2
+
+sources:
+  - name: 'ops_ia'
+    tables:
+      - name: _airbyte_raw_employee_list
