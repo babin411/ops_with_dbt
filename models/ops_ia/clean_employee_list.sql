@@ -11,8 +11,8 @@ with airbyte_raw_data as (
 ,
 cleaned_data as (
 	select
-		trim(upper(cte1.employee_name)) as employee_name,
-		trim(cte1.employee_email) as employee_email,
+		md5(trim(upper(cte1.employee_name))) as employee_name,
+		md5(trim(cte1.employee_email)) as employee_email,
 		trim(cte1.gender) as gender,
 		trim(upper(cte1.main_department)) as main_department,
 		case

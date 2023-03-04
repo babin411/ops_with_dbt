@@ -6,3 +6,13 @@ sources:
     schema: dbt_employee_list
     tables:
       - name: _airbyte_raw_employee_list
+        description: >
+          This table contains the record for the employee name, email,
+          gender, main_department and sub_department
+      - name: _airbyte_raw_test_form_responses
+        description: >
+          This table contains the daily form record for the employee coming
+          to the office. This includes the employee's email address, the
+          food coupon id that they have been given for the day and their answer
+          to if they would be using the company's drop of service or not. This
+          table also contains other informations. 
