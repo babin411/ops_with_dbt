@@ -1,10 +1,10 @@
 with airbyte_raw_data as (
 	select 
-		jsonb_extract_path_text(_airbyte_data, 'Employee_Name') as "employee_name",
-		jsonb_extract_path_text(_airbyte_data, 'Employee_Email') as "employee_email",
-		jsonb_extract_path_text(_airbyte_data, 'Gender') as "gender",
-		jsonb_extract_path_text(_airbyte_data, 'Main_Department') as "main_department",
-		jsonb_extract_path_text(_airbyte_data, 'Sub_Department') as "sub_department",
+		jsonb_extract_path_text(_airbyte_data, 'Employee_Name') as employee_name,
+		jsonb_extract_path_text(_airbyte_data, 'Employee_Email') as employee_email,
+		jsonb_extract_path_text(_airbyte_data, 'Gender') as gender,
+		jsonb_extract_path_text(_airbyte_data, 'Main_Department') as main_department,
+		jsonb_extract_path_text(_airbyte_data, 'Sub_Department') as sub_department,
 		'_airbyte_emitted_at'
 	from {{source('ops_ia','_airbyte_raw_employee_list')}}
 )
