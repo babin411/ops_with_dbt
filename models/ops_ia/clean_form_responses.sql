@@ -41,7 +41,7 @@ cleaned_data as (
 		cel.sub_department
 	from airbyte_raw_form_responses arfr
 	left join {{ref('clean_employee_list')}} cel 
-	on email = cel.employee_email 
+	on arfr.email = cel.employee_email 
 )
 select
 	*
