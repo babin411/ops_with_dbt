@@ -10,7 +10,7 @@ with airbyte_raw_form_responses as (
 		jsonb_extract_path_text(_airbyte_data, 'Sub_Department') as sub_department,
 		jsonb_extract_path_text(_airbyte_data, 'Drop_Off_Required') as drop_off_required,
 		'_airbyte_emitted_at'
-	from dbt_transformed.dbt_employee_list."_airbyte_raw_test_form_responses" 
+	from {{source('ops_ia','_airbyte_raw_test_form_responses')}}
 )
 ,
 cleaned_data as (
