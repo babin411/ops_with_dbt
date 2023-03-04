@@ -40,4 +40,4 @@ cleaned_data as (
 )
 select
 	*
-from cleaned_data;
+from cleaned_data
