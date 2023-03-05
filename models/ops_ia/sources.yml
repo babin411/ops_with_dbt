@@ -16,3 +16,6 @@ sources:
           food coupon id that they have been given for the day and their answer
           to if they would be using the company's drop of service or not. This
           table also contains other informations. 
+      - name: _airbyte_raw_test_actual_drop_off
+        description: >
+          This table contains the daily record of employee who have used the drop off service
