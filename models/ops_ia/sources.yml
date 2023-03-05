@@ -18,4 +18,7 @@ sources:
           table also contains other informations. 
       - name: _airbyte_raw_test_actual_drop_off
         description: >
-          This table contains the daily record of employee who have used the drop off service
+          This table contains the daily record of employee who have used the drop off service.
+      - name: _airbyte_raw_test_summary_details
+        description: >
+          This contains the information of all the employee, their projects, and their drop off locations. 
