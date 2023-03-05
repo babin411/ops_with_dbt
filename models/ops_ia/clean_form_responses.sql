@@ -15,8 +15,8 @@ with airbyte_raw_form_responses as (
 ,
 cleaned_data as (
 	select
-		md5(trim(upper(arfr.employee_name))) as employee_name,
-		md5(trim(arfr.email)) as email,
+		trim(upper(arfr.employee_name)) as employee_name,
+		trim(arfr.email) as email,
 		cel.gender,
 		arfr.timestamp::date as date,
 		trim(upper(arfr.day)) as day,
